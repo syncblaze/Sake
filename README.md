@@ -5,6 +5,7 @@
 > In some cases it works completely different than the original version.
 > 
 > Current changes:
+> - Using `hikari.internal.fast_protocol.FastProtocolChecking` to make sure that protocols work with Py >= 3.12
 > - `MessageCache` does not update or delete messages automatically. These functions need to be called manually. 
 
 
