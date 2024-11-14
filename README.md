@@ -1,5 +1,13 @@
 # Sake
 
+> [!Warning]
+> This is a heavily modified Version of the original hikari-sake version.
+> In some cases it works completely different than the original version.
+> 
+> Current changes:
+> - ´MessageCache` does not update or delete messages automatically. These functions need to be called manually. 
+
+
 A distributed asynchronous cache interface (plus several implementations) designed for use with Hikari.
 
 # Installation

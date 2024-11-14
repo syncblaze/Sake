@@ -1678,17 +1678,17 @@ class MessageCache(ResourceClient, sake_abc.MessageCache):
     async def __on_message_create(self, event: hikari.ShardPayloadEvent, /) -> None:
         await self.set_message(dict(event.payload))
 
-    @_internal.as_listener(hikari.MessageDeleteEvent)
-    async def __on_message_delete_event(self, event: hikari.MessageDeleteEvent, /) -> None:
-        await self.delete_message(event.message_id)
+    # @_internal.as_listener(hikari.MessageDeleteEvent)
+    # async def __on_message_delete_event(self, event: hikari.MessageDeleteEvent, /) -> None:
+    #     await self.delete_message(event.message_id)
 
     @_internal.as_listener(hikari.GuildBulkMessageDeleteEvent)
     async def __on_guild_message_bulk_delete_event(self, event: hikari.GuildBulkMessageDeleteEvent, /) -> None:
         await self._get_connection(ResourceIndex.MESSAGE).delete(*map(str, event.message_ids))
 
-    @_internal.as_raw_listener("MESSAGE_UPDATE")
-    async def __on_message_update(self, event: hikari.ShardPayloadEvent, /) -> None:
-        await self.update_message(dict(event.payload))
+    # @_internal.as_raw_listener("MESSAGE_UPDATE")
+    # async def __on_message_update(self, event: hikari.ShardPayloadEvent, /) -> None:
+    #     await self.update_message(dict(event.payload))
 
     def with_message_expire(self, expire: typing.Optional[_internal.ExpireT], /) -> Self:
         """Set the default expire time for message entries added with this client.
